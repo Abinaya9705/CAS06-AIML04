@@ -6,8 +6,8 @@ INNOVATION : Real time screen monitoring on social media
              Avoid False Positives
 FEASIBILITY : 
 Screen Monitoring: Feasible via Flutter UI overlay, continuously capturing screenshots.
-OCR Integration: Extract text using Tesseract OCR / EasyOCR (Python).
-Cyberbullying Detection: Deep learning models (BERT/RoBERTa/LSTM) classify extracted text.
+OCR Integration: Extract text using Tesseract OCR  (Python).
+Cyberbullying Detection: Deep learning models (BERT) classify extracted text.
 Real-time Response: The Flutter app communicates with a local Python Flask API, processing and displaying alerts immediately.
 
 TECHNICAL STACK SELECTION :
