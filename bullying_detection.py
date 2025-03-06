@@ -12,6 +12,6 @@ toxic_words = ["dumb", "loser", "stupid", "idiot", "ugly", "fool"]
 for username, message in matches:
     is_bullying = any(word in message.lower() for word in toxic_words) 
     if is_bullying:
-        print(f"🚨 Warning! {username} might be bullying: {message}")
+        print(f" Warning! {username} might be bullying: {message}")
     else:
-        print(f"✅ Safe Message from {username}: {message}")
+        print(f" Safe Message from {username}: {message}")
