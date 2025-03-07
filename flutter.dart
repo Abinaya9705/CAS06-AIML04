@@ -31,8 +31,6 @@ class _CyberbullyingDetectorState extends State<CyberbullyingDetector> {
   String detectedText = "No text extracted yet";
   String severity = "Unknown";
   bool isProcessing = false;
-
-  /// 📌 **Take a screenshot, save it, and process OCR**
   Future<void> takeScreenshotAndAnalyze() async {
     setState(() => isProcessing = true);
 
@@ -63,7 +61,6 @@ class _CyberbullyingDetectorState extends State<CyberbullyingDetector> {
     setState(() => isProcessing = false);
   }
 
-  /// 📌 **Save screenshot as a file**
   Future<File> saveImageToFile(Uint8List imageBytes) async {
     Directory tempDir = await getTemporaryDirectory();
     String filePath = '${tempDir.path}/screenshot.png';
@@ -71,8 +68,6 @@ class _CyberbullyingDetectorState extends State<CyberbullyingDetector> {
     await file.writeAsBytes(imageBytes);
     return file;
   }
-
-  /// 📌 **Perform OCR by sending image to FastAPI**
   Future<String> performOCR(String imagePath) async {
     var request = http.MultipartRequest(
         "POST", Uri.parse("http://192.168.194.89:8000/extract_text/"));
@@ -86,8 +81,6 @@ class _CyberbullyingDetectorState extends State<CyberbullyingDetector> {
       return "Error: OCR failed";
     }
   }
-
-  /// 📌 **Send extracted text to cyberbullying detection model**
   Future<String> checkForCyberbullying(String text) async {
     var response = await http.post(
       Uri.parse("http://192.168.194.89:8000/detect/"),
